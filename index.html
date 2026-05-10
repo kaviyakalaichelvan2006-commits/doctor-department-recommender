@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Doctor Recommender</title>
+</head>
+
+<body>
+
+<h2>Doctor / Department Recommender</h2>
+
+<input type="text" id="symptom"
+placeholder="Enter symptom">
+
+<button onclick="getRecommendation()">
+Predict
+</button>
+
+<div id="result"></div>
+
+<script>
+
+function getRecommendation(){
+
+    const symptom =
+    document.getElementById("symptom").value
+
+    fetch("http://127.0.0.1:5000/predict",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            symptom:symptom
+        })
+
+    })
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        if(data.error){
+
+            document.getElementById("result").innerHTML =
+            data.error
+
+            return
+        }
+
+        document.getElementById("result").innerHTML =
+        `
+        <h3>Recommended Department:</h3>
+        <p>${data.department}</p>
+        `
+    })
+
+}
+
+</script>
+
+</body>
+</html>
