@@ -1,6 +1,71 @@
-symptom,department
-headache,Neurologist
-tooth pain,Dentist
-ear pain,ENT Specialist
-chest pain,Cardiologist
-fever,General Physician
+symptom,department,doctor
+
+fever,General Physician,Dr. Ravi
+cold,General Physician,Dr. Ravi
+cough,General Physician,Dr. Ravi
+body pain,General Physician,Dr. Ravi
+fatigue,General Physician,Dr. Ravi
+weakness,General Physician,Dr. Ravi
+viral fever,General Physician,Dr. Ravi
+
+sore throat,ENT Specialist,Dr. Priya
+ear pain,ENT Specialist,Dr. Priya
+hearing loss,ENT Specialist,Dr. Priya
+runny nose,ENT Specialist,Dr. Priya
+sinus pain,ENT Specialist,Dr. Priya
+nose blockage,ENT Specialist,Dr. Priya
+throat infection,ENT Specialist,Dr. Priya
+
+headache,Neurologist,Dr. Kumar
+migraine,Neurologist,Dr. Kumar
+dizziness,Neurologist,Dr. Kumar
+seizure,Neurologist,Dr. Kumar
+memory loss,Neurologist,Dr. Kumar
+nerve pain,Neurologist,Dr. Kumar
+brain fog,Neurologist,Dr. Kumar
+
+tooth pain,Dentist,Dr. Meena
+gum bleeding,Dentist,Dr. Meena
+tooth decay,Dentist,Dr. Meena
+jaw pain,Dentist,Dr. Meena
+sensitivity in teeth,Dentist,Dr. Meena
+cavity,Dentist,Dr. Meena
+
+chest pain,Cardiologist,Dr. Arjun
+high blood pressure,Cardiologist,Dr. Arjun
+palpitations,Cardiologist,Dr. Arjun
+shortness of breath,Cardiologist,Dr. Arjun
+irregular heartbeat,Cardiologist,Dr. Arjun
+heart pain,Cardiologist,Dr. Arjun
+heart attack symptoms,Cardiologist,Dr. Arjun
+cardiac pain,Cardiologist,Dr. Arjun
+pressure in chest,Cardiologist,Dr. Arjun
+
+skin rash,Dermatologist,Dr. Divya
+acne,Dermatologist,Dr. Divya
+itching,Dermatologist,Dr. Divya
+eczema,Dermatologist,Dr. Divya
+hair loss,Dermatologist,Dr. Divya
+skin allergy,Dermatologist,Dr. Divya
+
+stomach pain,Gastroenterologist,Dr. Suresh
+indigestion,Gastroenterologist,Dr. Suresh
+vomiting,Gastroenterologist,Dr. Suresh
+diarrhea,Gastroenterologist,Dr. Suresh
+constipation,Gastroenterologist,Dr. Suresh
+gas trouble,Gastroenterologist,Dr. Suresh
+
+eye pain,Eye Specialist,Dr. Nisha
+blurred vision,Eye Specialist,Dr. Nisha
+red eyes,Eye Specialist,Dr. Nisha
+eye irritation,Eye Specialist,Dr. Nisha
+
+joint pain,Orthopedic,Dr. Karthik
+back pain,Orthopedic,Dr. Karthik
+knee pain,Orthopedic,Dr. Karthik
+bone fracture,Orthopedic,Dr. Karthik
+
+anxiety,Psychiatrist,Dr. Anitha
+depression,Psychiatrist,Dr. Anitha
+stress,Psychiatrist,Dr. Anitha
+panic attack,Psychiatrist,Dr. Anitha
