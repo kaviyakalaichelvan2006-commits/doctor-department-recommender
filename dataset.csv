@@ -1,71 +1,63 @@
-symptom,department,doctor
-
-fever,General Physician,Dr. Ravi
-cold,General Physician,Dr. Ravi
-cough,General Physician,Dr. Ravi
-body pain,General Physician,Dr. Ravi
-fatigue,General Physician,Dr. Ravi
-weakness,General Physician,Dr. Ravi
-viral fever,General Physician,Dr. Ravi
-
-sore throat,ENT Specialist,Dr. Priya
-ear pain,ENT Specialist,Dr. Priya
-hearing loss,ENT Specialist,Dr. Priya
-runny nose,ENT Specialist,Dr. Priya
-sinus pain,ENT Specialist,Dr. Priya
-nose blockage,ENT Specialist,Dr. Priya
-throat infection,ENT Specialist,Dr. Priya
-
-headache,Neurologist,Dr. Kumar
-migraine,Neurologist,Dr. Kumar
-dizziness,Neurologist,Dr. Kumar
-seizure,Neurologist,Dr. Kumar
-memory loss,Neurologist,Dr. Kumar
-nerve pain,Neurologist,Dr. Kumar
-brain fog,Neurologist,Dr. Kumar
-
-tooth pain,Dentist,Dr. Meena
-gum bleeding,Dentist,Dr. Meena
-tooth decay,Dentist,Dr. Meena
-jaw pain,Dentist,Dr. Meena
-sensitivity in teeth,Dentist,Dr. Meena
-cavity,Dentist,Dr. Meena
-
-chest pain,Cardiologist,Dr. Arjun
-high blood pressure,Cardiologist,Dr. Arjun
-palpitations,Cardiologist,Dr. Arjun
-shortness of breath,Cardiologist,Dr. Arjun
-irregular heartbeat,Cardiologist,Dr. Arjun
-heart pain,Cardiologist,Dr. Arjun
-heart attack symptoms,Cardiologist,Dr. Arjun
-cardiac pain,Cardiologist,Dr. Arjun
-pressure in chest,Cardiologist,Dr. Arjun
-
-skin rash,Dermatologist,Dr. Divya
-acne,Dermatologist,Dr. Divya
-itching,Dermatologist,Dr. Divya
-eczema,Dermatologist,Dr. Divya
-hair loss,Dermatologist,Dr. Divya
-skin allergy,Dermatologist,Dr. Divya
-
-stomach pain,Gastroenterologist,Dr. Suresh
-indigestion,Gastroenterologist,Dr. Suresh
-vomiting,Gastroenterologist,Dr. Suresh
-diarrhea,Gastroenterologist,Dr. Suresh
-constipation,Gastroenterologist,Dr. Suresh
-gas trouble,Gastroenterologist,Dr. Suresh
-
-eye pain,Eye Specialist,Dr. Nisha
-blurred vision,Eye Specialist,Dr. Nisha
-red eyes,Eye Specialist,Dr. Nisha
-eye irritation,Eye Specialist,Dr. Nisha
-
-joint pain,Orthopedic,Dr. Karthik
-back pain,Orthopedic,Dr. Karthik
-knee pain,Orthopedic,Dr. Karthik
-bone fracture,Orthopedic,Dr. Karthik
-
-anxiety,Psychiatrist,Dr. Anitha
-depression,Psychiatrist,Dr. Anitha
-stress,Psychiatrist,Dr. Anitha
-panic attack,Psychiatrist,Dr. Anitha
+doctor_name,department,symptoms,experience,availability,rating
+Dr Rajesh,Cardiology,chest pain heart pain bp high bp dizziness,12,Available Today,4.8
+Dr Priya,Neurology,headache migraine dizziness seizures memory loss,8,Tomorrow,4.7
+Dr Arun,Dermatology,skin allergy rashes itching acne infection,10,Available Today,4.5
+Dr Meena,Orthopedics,joint pain knee pain fracture back pain,15,Tomorrow,4.9
+Dr Karthik,Pediatrics,fever cold cough child weakness,9,Available Today,4.6
+Dr Anitha,Gynecology,pregnancy menstrual pain infertility hormonal imbalance,11,Tomorrow,4.8
+Dr Suresh,ENT,ear pain throat infection sinus cold cough,7,Available Today,4.4
+Dr Kavitha,General Medicine,fever body pain weakness cold headache,14,Available Today,4.9
+Dr Vivek,Pulmonology,breathing problem asthma cough chest tightness,13,Tomorrow,4.7
+Dr Harini,Psychiatry,stress anxiety depression insomnia panic attack,10,Available Today,4.8
+Dr Ramesh,Urology,kidney stone urine infection pelvic pain,16,Tomorrow,4.7
+Dr Deepa,Ophthalmology,eye pain blurred vision redness eye infection,8,Available Today,4.5
+Dr Naveen,Gastroenterology,stomach pain acidity ulcer digestion vomiting,12,Tomorrow,4.6
+Dr Swathi,Endocrinology,diabetes thyroid obesity hormonal imbalance,14,Available Today,4.8
+Dr Ashok,Nephrology,kidney failure swelling urine problem bp,17,Tomorrow,4.9
+Dr Divya,Dentistry,tooth pain gum swelling cavity mouth infection,9,Available Today,4.5
+Dr Sanjay,Cardiology,heartburn chest discomfort bp irregular heartbeat,13,Tomorrow,4.7
+Dr Keerthana,Neurology,migraine nerve pain dizziness numbness,11,Available Today,4.6
+Dr Balaji,Dermatology,eczema skin redness itching fungal infection,8,Tomorrow,4.4
+Dr Monica,Orthopedics,shoulder pain arthritis bone fracture muscle pain,12,Available Today,4.7
+Dr Vinoth,Pediatrics,child fever cough flu infection weakness,10,Tomorrow,4.6
+Dr Rekha,Gynecology,pcos menstrual cramps pregnancy checkup,15,Available Today,4.9
+Dr Dinesh,ENT,sinus headache ear blockage throat pain,9,Tomorrow,4.5
+Dr Lakshmi,General Medicine,viral fever cold fatigue dehydration,13,Available Today,4.8
+Dr Hari,Pulmonology,lung infection asthma wheezing breathing issue,11,Tomorrow,4.7
+Dr Nithya,Psychiatry,mental stress anxiety fear mood swings,10,Available Today,4.6
+Dr Prakash,Urology,urine burning kidney pain bladder infection,14,Tomorrow,4.8
+Dr Shalini,Ophthalmology,eye watering irritation vision loss dryness,9,Available Today,4.5
+Dr Gokul,Gastroenterology,food poisoning vomiting nausea stomach cramps,12,Tomorrow,4.6
+Dr Preethi,Endocrinology,thyroid weight gain diabetes fatigue,13,Available Today,4.7
+Dr Bharath,Nephrology,kidney infection swelling urine retention,16,Tomorrow,4.8
+Dr Sneha,Dentistry,tooth sensitivity gum pain dental cavity,7,Available Today,4.4
+Dr Rohit,Cardiology,heart pain shortness of breath high bp,15,Tomorrow,4.9
+Dr Janani,Neurology,brain fog dizziness chronic headache,9,Available Today,4.5
+Dr Senthil,Dermatology,skin peeling acne allergy itching redness,11,Tomorrow,4.6
+Dr Gayathri,Orthopedics,spine pain joint stiffness bone injury,14,Available Today,4.8
+Dr Arvind,Pediatrics,child cold fever throat pain weakness,8,Tomorrow,4.5
+Dr Bhavani,Gynecology,pregnancy nausea hormonal changes pelvic pain,12,Available Today,4.7
+Dr Mohan,ENT,tonsils throat irritation ear ringing sinus infection,10,Tomorrow,4.6
+Dr Sindhu,General Medicine,body pain fever weakness infection cough,15,Available Today,4.9
+Dr Kiran,Pulmonology,chronic cough asthma chest congestion,13,Tomorrow,4.8
+Dr Aishwarya,Psychiatry,depression loneliness panic disorder stress,9,Available Today,4.5
+Dr Uday,Urology,kidney stone urine blockage abdominal pain,17,Tomorrow,4.9
+Dr Pavithra,Ophthalmology,eye strain blurry vision headache dryness,10,Available Today,4.6
+Dr Vijay,Gastroenterology,gas trouble constipation acidity bloating,11,Tomorrow,4.5
+Dr Ramya,Endocrinology,diabetes sugar fluctuation thyroid disorder,14,Available Today,4.8
+Dr Saravanan,Nephrology,kidney disease bp swelling fatigue,18,Tomorrow,4.9
+Dr Hemalatha,Dentistry,oral infection tooth decay gum bleeding,8,Available Today,4.5
+Dr Ajay,Cardiology,palpitations chest pressure high cholesterol,12,Tomorrow,4.7
+Dr Ishwarya,Neurology,nerve weakness epilepsy migraine dizziness,10,Available Today,4.6
+Dr Manoj,Dermatology,skin bumps itching allergy dryness infection,9,Tomorrow,4.4
+Dr Revathi,Orthopedics,muscle pain fracture knee swelling arthritis,13,Available Today,4.8
+Dr Yogesh,Pediatrics,child flu cough fever vomiting weakness,11,Tomorrow,4.7
+Dr Priyanka,Gynecology,uterus pain pcos pregnancy care infertility,15,Available Today,4.9
+Dr Kamesh,ENT,nose blockage sinus pain ear infection throat swelling,10,Tomorrow,4.5
+Dr Vaishnavi,General Medicine,fever infection cold headache body weakness,12,Available Today,4.8
+Dr Naren,Pulmonology,breathing difficulty wheezing lung infection asthma,16,Tomorrow,4.9
+Dr Tejaswini,Psychiatry,anxiety disorder stress emotional imbalance insomnia,11,Available Today,4.7
+Dr Lokesh,Urology,bladder pain urine infection kidney swelling,13,Tomorrow,4.6
+Dr Hema,Ophthalmology,vision blur eye redness eye allergy pain,9,Available Today,4.5
+Dr Ganesh,Gastroenterology,indigestion stomach ulcer nausea acidity,14,Tomorrow,4.8
+Dr Kaviya,Physiotherapy,sports injury physiotherapy rehabilitation sports therapy physical therapy muscle recovery neck pain back pain posture correction body pain muscle stiffness rehabilitation exercise therapy,6,Available Today,4.9

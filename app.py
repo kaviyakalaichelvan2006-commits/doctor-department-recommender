@@ -6,52 +6,101 @@ app = Flask(__name__)
 CORS(app)
 
 
+# Home Route
+@app.route("/")
+def home():
+
+    return jsonify({
+        "message": "AI Doctor Recommendation System API Running"
+    })
+
+
 # Prediction API
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    data = request.get_json()
+    try:
 
-    symptom = data.get("symptom")
+        data = request.get_json()
 
-    # Input validation
-    if not symptom or symptom.strip() == "":
+        symptom = data.get("symptom")
+
+        # Input validation
+        if not symptom or symptom.strip() == "":
+
+            return jsonify({
+                "error": "Please enter a valid symptom"
+            }), 400
+
+        # Get recommendations
+        results = predict_department(symptom)
+
+        # No recommendation found
+        if len(results) == 0:
+
+            return jsonify({
+                "message": "No strong recommendation found"
+            })
+
+        # Successful response
         return jsonify({
-            "error": "Please enter a valid symptom"
-        }), 400
 
-    results = predict_department(symptom)
+            "success": True,
 
-    # No strong match
-    if results[0]["confidence"] < 10:
-        return jsonify({
-            "message": "No strong recommendation found"
+            "input_symptom": symptom,
+
+            "top_recommendations": results,
+
+            "model_accuracy": "96.77%",
+
+            "algorithm":
+            "TF-IDF + Multinomial Naive Bayes",
+
+            "explanation":
+            "Recommendations generated using symptom similarity and machine learning classification.",
+
+            "feedback_question":
+            "Was this recommendation helpful?"
+
         })
 
-    return jsonify({
-        "input": symptom,
-        "recommendations": results,
-        "note": "Prediction based on symptom similarity using ML model",
-        "feedback": "Was this recommendation helpful?"
-    })
+    except Exception as e:
+
+        return jsonify({
+            "error": str(e)
+        }), 500
 
 
 # Feedback API
 @app.route("/feedback", methods=["POST"])
 def feedback():
 
-    data = request.get_json()
+    try:
 
-    user_feedback = data.get("feedback")
+        data = request.get_json()
 
-    # Store feedback
-    with open("feedback.txt", "a") as f:
-        f.write(user_feedback + "\n")
+        user_feedback = data.get("feedback")
 
-    return jsonify({
-        "message": "Feedback received successfully"
-    })
+        comment = data.get("comment", "")
+
+        # Save feedback
+        with open("feedback.txt", "a") as f:
+
+            f.write(
+                f"Feedback: {user_feedback} | Comment: {comment}\n"
+            )
+
+        return jsonify({
+            "message": "Feedback received successfully"
+        })
+
+    except Exception as e:
+
+        return jsonify({
+            "error": str(e)
+        }), 500
 
 
 if __name__ == "__main__":
+
     app.run(debug=True)

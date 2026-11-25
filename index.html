@@ -1,32 +1,528 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Doctor Recommender</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        🏥 MediAssist
+    </title>
+
+    <link rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
     <style>
 
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
         body{
-            font-family: Arial;
-            padding:20px;
+
+            font-family:'Poppins', sans-serif;
+
+            min-height:100vh;
+
+            background:
+            linear-gradient(
+                135deg,
+                #020617,
+                #0f172a,
+                #111827,
+                #1e293b
+            );
+
+            overflow-x:hidden;
+
+            position:relative;
+
+            padding:40px 20px;
+        }
+
+        /* Animated Glow Background */
+
+        .blob{
+
+            position:absolute;
+
+            border-radius:50%;
+
+            filter:blur(120px);
+
+            opacity:0.35;
+
+            z-index:-1;
+
+            animation:float 8s infinite ease-in-out;
+        }
+
+        .blob1{
+
+            width:300px;
+            height:300px;
+
+            background:#0ea5e9;
+
+            top:-80px;
+            left:-80px;
+        }
+
+        .blob2{
+
+            width:350px;
+            height:350px;
+
+            background:#2563eb;
+
+            bottom:-100px;
+            right:-100px;
+
+            animation-delay:2s;
+        }
+
+        .blob3{
+
+            width:250px;
+            height:250px;
+
+            background:#06b6d4;
+
+            top:45%;
+            left:55%;
+
+            animation-delay:4s;
+        }
+
+        @keyframes float{
+
+            0%{
+                transform:translateY(0px);
+            }
+
+            50%{
+                transform:translateY(-25px);
+            }
+
+            100%{
+                transform:translateY(0px);
+            }
+        }
+
+        .container{
+
+            max-width:950px;
+
+            margin:auto;
+
+            background:rgba(255,255,255,0.08);
+
+            backdrop-filter:blur(18px);
+
+            border-radius:35px;
+
+            padding:45px;
+
+            border:1px solid rgba(255,255,255,0.1);
+
+            box-shadow:
+            0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .hero{
+
+            text-align:center;
+
+            margin-bottom:35px;
+        }
+
+        .hero h1{
+
+            font-size:52px;
+
+            color:white;
+
+            margin-bottom:12px;
+
+            font-weight:700;
+        }
+
+        .hero p{
+
+            color:#cbd5e1;
+
+            font-size:19px;
+
+            line-height:1.7;
+        }
+
+        .search-box{
+
+            display:flex;
+
+            gap:15px;
+
+            margin-bottom:20px;
+        }
+
+        .input-wrapper{
+
+            position:relative;
+
+            flex:1;
+        }
+
+        .search-icon{
+
+            position:absolute;
+
+            top:20px;
+
+            left:20px;
+
+            font-size:22px;
+
+            color:#cbd5e1;
         }
 
         input{
-            padding:10px;
-            width:250px;
+
+            width:100%;
+
+            padding:20px;
+
+            padding-left:60px;
+
+            border:none;
+
+            outline:none;
+
+            border-radius:18px;
+
+            background:rgba(255,255,255,0.1);
+
+            color:white;
+
+            font-size:17px;
+
+            border:1px solid rgba(255,255,255,0.1);
+
+            transition:0.3s;
         }
 
-        button{
-            padding:10px;
-            margin-top:10px;
+        input:focus{
+
+            box-shadow:
+            0 0 18px rgba(14,165,233,0.35);
+
+            border:1px solid #38bdf8;
         }
 
-        #result{
-            margin-top:20px;
-            padding:15px;
-            border:1px solid gray;
-            border-radius:10px;
-            width:350px;
+        input::placeholder{
+
+            color:#94a3b8;
+        }
+
+        .search-btn{
+
+            width:180px;
+
+            border:none;
+
+            border-radius:18px;
+
+            background:
+            linear-gradient(
+                to right,
+                #0ea5e9,
+                #06b6d4
+            );
+
+            color:white;
+
+            font-size:17px;
+
+            font-weight:600;
+
+            cursor:pointer;
+
+            transition:0.3s;
+
+            box-shadow:
+            0 5px 18px rgba(14,165,233,0.35);
+        }
+
+        .search-btn:hover{
+
+            transform:translateY(-3px);
+
+            box-shadow:
+            0 10px 25px rgba(14,165,233,0.45);
+        }
+
+        #loading{
+
+            display:none;
+
+            text-align:center;
+
+            margin-top:25px;
+
+            color:white;
+
+            font-size:19px;
+
+            font-weight:600;
+        }
+
+        .recommendation-title{
+
+            text-align:center;
+
+            margin-top:35px;
+
+            color:white;
+
+            font-size:34px;
+
+            font-weight:700;
+        }
+
+        .card{
+
+            margin-top:25px;
+
+            background:rgba(255,255,255,0.08);
+
+            border-radius:28px;
+
+            padding:30px;
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter:blur(12px);
+
+            transition:0.3s;
+        }
+
+        .card:hover{
+
+            transform:translateY(-6px);
+
+            box-shadow:
+            0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .doctor-image{
+
+            width:120px;
+
+            height:120px;
+
+            border-radius:50%;
+
+            object-fit:cover;
+
+            display:block;
+
+            margin:auto;
+
+            margin-bottom:18px;
+
+            border:5px solid #38bdf8;
+        }
+
+        .doctor-name{
+
+            text-align:center;
+
+            font-size:30px;
+
+            font-weight:700;
+
+            color:white;
+
+            margin-bottom:22px;
+        }
+
+        .info{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(220px,1fr));
+
+            gap:15px;
+        }
+
+        .info-box{
+
+            background:rgba(255,255,255,0.08);
+
+            padding:16px;
+
+            border-radius:16px;
+
+            color:#cbd5e1;
+
+            line-height:1.7;
+
+            font-size:15px;
+        }
+
+        .info-box b{
+
+            color:white;
+        }
+
+        .badges{
+
+            display:flex;
+
+            gap:15px;
+
+            flex-wrap:wrap;
+
+            margin-top:22px;
+        }
+
+        .badge{
+
+            padding:10px 18px;
+
+            border-radius:30px;
+
+            color:white;
+
+            font-size:14px;
+
+            font-weight:600;
+        }
+
+        .confidence{
+
+            background:#22c55e;
+        }
+
+        .risk-high{
+
+            background:#ef4444;
+        }
+
+        .risk-medium{
+
+            background:#f59e0b;
+        }
+
+        .risk-low{
+
+            background:#3b82f6;
+        }
+
+        .note{
+
+            margin-top:30px;
+
+            background:rgba(255,255,255,0.08);
+
+            padding:25px;
+
+            border-radius:20px;
+
+            color:#cbd5e1;
+
+            line-height:1.8;
+
+            border-left:5px solid #0ea5e9;
+        }
+
+        .feedback{
+
+            margin-top:25px;
+
+            display:flex;
+
+            gap:15px;
+        }
+
+        .feedback button{
+
+            flex:1;
+
+            padding:16px;
+
+            border:none;
+
+            border-radius:18px;
+
+            background:
+            linear-gradient(
+                to right,
+                #0ea5e9,
+                #06b6d4
+            );
+
+            color:white;
+
+            font-size:16px;
+
+            font-weight:600;
+
+            cursor:pointer;
+
+            transition:0.3s;
+        }
+
+        .feedback button:hover{
+
+            transform:translateY(-2px);
+        }
+
+        footer{
+
+            text-align:center;
+
+            margin-top:35px;
+
+            color:#94a3b8;
+
+            font-size:15px;
+        }
+
+        @media(max-width:768px){
+
+            .search-box{
+
+                flex-direction:column;
+            }
+
+            .search-btn{
+
+                width:100%;
+                padding:18px;
+            }
+
+            .hero h1{
+
+                font-size:36px;
+            }
+
+            .container{
+
+                padding:25px;
+            }
         }
 
     </style>
@@ -35,18 +531,64 @@
 
 <body>
 
-<h2>Doctor / Department Recommender</h2>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
 
-<input type="text" id="symptom"
-placeholder="Enter symptom">
+<div class="container">
 
-<br>
+    <div class="hero">
 
-<button onclick="getRecommendation()">
-Predict
-</button>
+        <h1>
+            🏥 MediAssist
+        </h1>
 
-<div id="result"></div>
+        <p>
+            Smart AI-Powered Healthcare Assistant
+        </p>
+
+    </div>
+
+    <div class="search-box">
+
+        <div class="input-wrapper">
+
+            <span class="search-icon">
+                🔍
+            </span>
+
+            <input
+            type="text"
+            id="symptom"
+            placeholder="Enter symptoms like chest pain, migraine, asthma...">
+
+        </div>
+
+        <button class="search-btn"
+        onclick="getRecommendation()">
+
+            Search
+
+        </button>
+
+    </div>
+
+    <div id="loading">
+
+        🤖 AI analyzing symptoms...
+
+    </div>
+
+    <div id="result"></div>
+
+</div>
+
+<footer>
+
+    Built by Kaviya.k |
+    AI Healthcare Recommendation System
+
+</footer>
 
 
 <script>
@@ -55,6 +597,16 @@ function getRecommendation(){
 
     const symptom =
     document.getElementById("symptom").value;
+
+    if(symptom.trim() === ""){
+
+        alert("Please enter symptoms");
+
+        return;
+    }
+
+    document.getElementById("loading")
+    .style.display = "block";
 
     fetch("http://127.0.0.1:5000/predict", {
 
@@ -74,58 +626,265 @@ function getRecommendation(){
 
     .then(data => {
 
-        console.log(data)
+        document.getElementById("loading")
+        .style.display = "none";
 
         if(data.error){
 
-            document.getElementById("result").innerHTML =
-            data.error
+            document.getElementById("result")
+            .innerHTML =
+            `<div class="card">
+                <div class="doctor-name">
+                    ${data.error}
+                </div>
+            </div>`;
 
-            return
+            return;
         }
 
         if(data.message){
 
-            document.getElementById("result").innerHTML =
-            data.message
+            document.getElementById("result")
+            .innerHTML =
+            `<div class="card">
+                <div class="doctor-name">
+                    ${data.message}
+                </div>
+            </div>`;
 
-            return
+            return;
         }
 
         let output =
-        "<h3>Recommendations:</h3>"
 
-        data.recommendations.forEach(item => {
+        `<div class="recommendation-title">
+            Top AI Recommendations
+        </div>`;
+
+        data.top_recommendations.forEach(item => {
+
+            let riskClass = "risk-low";
+            let riskText = "Low Risk";
+
+            if(item.confidence >= 70){
+
+                riskClass = "risk-high";
+                riskText = "High Priority";
+            }
+
+            else if(item.confidence >= 40){
+
+                riskClass = "risk-medium";
+                riskText = "Medium Priority";
+            }
+
+            /* DIFFERENT REALISTIC DOCTOR IMAGES */
+
+            const maleImages = [
+
+            "https://randomuser.me/api/portraits/men/11.jpg",
+            "https://randomuser.me/api/portraits/men/32.jpg",
+            "https://randomuser.me/api/portraits/men/45.jpg",
+            "https://randomuser.me/api/portraits/men/64.jpg",
+            "https://randomuser.me/api/portraits/men/75.jpg"
+
+            ];
+
+            const femaleImages = [
+
+            "https://randomuser.me/api/portraits/women/12.jpg",
+            "https://randomuser.me/api/portraits/women/24.jpg",
+            "https://randomuser.me/api/portraits/women/36.jpg",
+            "https://randomuser.me/api/portraits/women/48.jpg",
+            "https://randomuser.me/api/portraits/women/60.jpg"
+
+            ];
+
+            const femaleDoctors = [
+
+            "Priya",
+            "Meena",
+            "Anitha",
+            "Kavitha",
+            "Harini",
+            "Deepa",
+            "Swathi",
+            "Keerthana",
+            "Monica",
+            "Rekha",
+            "Lakshmi",
+            "Nithya",
+            "Shalini",
+            "Preethi",
+            "Sneha",
+            "Janani",
+            "Gayathri",
+            "Bhavani",
+            "Sindhu",
+            "Aishwarya",
+            "Pavithra",
+            "Ramya",
+            "Hema",
+            "Kaviya",
+            "Priyanka",
+            "Tejaswini",
+            "Vaishnavi",
+            "Hemalatha",
+            "Revathi",
+            "Ishwarya"
+
+            ];
+
+            let imageUrl =
+            maleImages[
+            Math.floor(
+            Math.random() * maleImages.length
+            )
+            ];
+
+            femaleDoctors.forEach(name => {
+
+                if(item.doctor.includes(name)){
+
+                    imageUrl =
+                    femaleImages[
+                    Math.floor(
+                    Math.random() * femaleImages.length
+                    )
+                    ];
+                }
+
+            });
 
             output += `
-            <p>
-            <b>${item.department}</b><br>
-            Doctor: ${item.doctor}<br>
-            Confidence: ${item.confidence}%
-            </p>
-            `
-        })
+
+            <div class="card">
+
+                <img
+                src="${imageUrl}"
+                class="doctor-image">
+
+                <div class="doctor-name">
+
+                    👨‍⚕️ ${item.doctor}
+
+                </div>
+
+                <div class="info">
+
+                    <div class="info-box">
+
+                        <b>Department</b><br>
+
+                        ${item.department}
+
+                    </div>
+
+                    <div class="info-box">
+
+                        <b>Experience</b><br>
+
+                        ${item.experience} Years
+
+                    </div>
+
+                    <div class="info-box">
+
+                        <b>Availability</b><br>
+
+                        ${item.availability}
+
+                    </div>
+
+                    <div class="info-box">
+
+                        <b>Rating</b><br>
+
+                        ⭐ ${item.rating}
+
+                    </div>
+
+                </div>
+
+                <div class="badges">
+
+                    <div class="badge confidence">
+
+                        Match Score:
+                        ${item.confidence}%
+
+                    </div>
+
+                    <div class="badge ${riskClass}">
+
+                        ${riskText}
+
+                    </div>
+
+                </div>
+
+            </div>
+            `;
+        });
 
         output += `
-        <p><i>${data.note}</i></p>
 
-        <p>${data.feedback}</p>
+        <div class="note">
 
-        <button onclick="sendFeedback('Yes')">
-        👍 Yes
-        </button>
+            <b>Algorithm Used:</b>
+            ${data.algorithm}
 
-        <button onclick="sendFeedback('No')">
-        👎 No
-        </button>
-        `
+            <br><br>
 
-        document.getElementById("result").innerHTML =
-        output
+            <b>Explanation:</b><br>
+            ${data.explanation}
 
-    })
+            <br><br>
+
+            <b>Model Accuracy:</b>
+            ${data.model_accuracy}
+
+        </div>
+
+        <div class="feedback">
+
+            <button onclick="sendFeedback('Helpful')">
+
+                👍 Helpful
+
+            </button>
+
+            <button onclick="sendFeedback('Not Helpful')">
+
+                👎 Not Helpful
+
+            </button>
+
+        </div>
+        `;
+
+        document.getElementById("result")
+        .innerHTML = output;
+
+    });
 
 }
+
+
+/* ENTER KEY SUPPORT */
+
+document
+.getElementById("symptom")
+.addEventListener("keydown", function(event){
+
+    if(event.key === "Enter"){
+
+        event.preventDefault();
+
+        getRecommendation();
+    }
+
+});
 
 
 function sendFeedback(value){
@@ -148,9 +907,9 @@ function sendFeedback(value){
 
     .then(data => {
 
-        alert(data.message)
+        alert(data.message);
 
-    })
+    });
 
 }
 
